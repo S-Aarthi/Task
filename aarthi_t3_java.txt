@@ -1,0 +1,232 @@
+import java.util.List;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+
+class Person
+{
+    private String name;
+    private int age;
+    private String behaviour;
+    private List<String> Aadhaar_and_Payslip;
+
+    public Person() {
+    }
+
+    public Person(String name, int age, String behaviour, List<String> Aadhaar_and_Payslip) {
+        this.name = name;
+        this.age = age;
+        this.behaviour = behaviour;
+        this.Aadhaar_and_Payslip = Aadhaar_and_Payslip;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+     public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public String getBehaviour() {
+        return behaviour;
+    }
+
+    public void setBehaviour(String behaviour) {
+        this.behaviour = behaviour;
+    }
+
+    public List<String> getAadhaar_and_Payslip() {
+        return Aadhaar_and_Payslip;
+    }
+
+    public void setAadhaar_and_Payslip(List<String> Aadhaar_and_Payslip) {
+        this.Aadhaar_and_Payslip = Aadhaar_and_Payslip;
+    }
+}
+
+class Values {
+    public static List<Person> getAll() {
+        return Stream.of(
+                new Person( "john", 33, "kind", Arrays.asList("876397937955", "21654")),
+                new Person( "smith", 22, "kind", Arrays.asList("89565463865", "38947")),
+                new Person( "peter", 47, "unkind", Arrays.asList("389446328654", "37236")),
+                new Person( "kely", 24, "kind", Arrays.asList("389246829364", "94867"))
+        ).collect(Collectors.toList());
+    }
+    
+    void result()
+        {
+            for (i=0;i<4;i++)
+            {
+            if (age>25)
+            {
+                if (behaviour=="kind")
+                {
+                   // return doc.payslip;
+                    System.out.println("payslip"+Value[i].Aadhaar_and_Payslip);
+                }
+            }
+            else 
+            {
+                System.out.println("\nNo Person found.");
+            }
+        }
+        }
+        
+}
+
+public class MapVsFlatMap {
+    public static void main(String[] args) {
+        
+        void result();
+        
+
+        List<Person> personn = Values.getAll();
+
+        List<String> behaviour = personn.stream()
+                .map(person -> person.getBehaviour())
+                .collect(Collectors.toList());
+        System.out.println(behaviour);
+
+        List<List<String>> Aadhaar_and_Payslip = personn.
+                stream().map(person -> person.getAadhaar_and_Payslip())
+                .collect(Collectors.toList());
+        System.out.println(Aadhaar_and_Payslip);
+
+        List<String> phones = personn.stream()
+                .flatMap(person -> person.getAadhaar_and_Payslip().stream())
+                .collect(Collectors.toList());
+        System.out.println(phones);
+    }
+}
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//aliter
+
+import java.util.*;
+class Person 
+{
+    String name;
+    String behaviour;
+    int age;
+}
+class Documents extends Person
+{
+    String dname;
+    String purpose;
+    String company;
+    String payslip;
+    int aadhar;
+    String pancard;
+    String passport;
+    
+    public Documents(String name, int age ,String behaviour,
+        String dname, String purpose, String company,String payslip,
+        int aadhar, String pancard, String passport)
+        {
+        this.name = name;
+        this.age = age;
+        this.behaviour = behaviour;
+        this.dname = dname;
+        this.purpose = purpose;
+        this.company = company;
+        this.payslip = payslip;
+        this.aadhar = aadhar;
+        this.pancard = pancard;
+        this.passport = passport;
+        }
+        
+        public void result()
+        {
+            if (age>25)
+            {
+                if (behaviour=="kind")
+                {
+                   // return doc.payslip;
+                    System.out.println("payslip");
+                }
+            }
+            else 
+            {
+                System.out.println("\nNo Person found.");
+            }
+        }
+         //public void result();
+}
+
+public class Main
+{
+    public static void main (String[] args) 
+    {
+        String name ="";
+        String behaviour ="";
+        int age =0;
+        String dname = "";
+        String purpose = "";
+        String company = "";
+        String payslip = "";
+        int aadhar =0;
+        String pancard = "";
+        String passport = "";
+        
+        //public void result();
+        int i;
+        Scanner scanObj=new Scanner(System.in);
+        for(i=0;i<3;i++)
+        {
+            
+    
+        System.out.println("Enter the Name:");
+		name = scanObj.nextLine();
+		
+		System.out.println("Enter the Age:");
+		age = Integer.parseInt(scanObj.nextLine());
+
+		System.out.println("Enter the behaviour(kind/unkind):");
+		behaviour = scanObj.nextLine();
+
+		System.out.println("Enter the Document name:");
+		dname = scanObj.nextLine();
+
+		System.out.println("Enter the purpose:");
+		purpose =scanObj.nextLine();
+		
+		System.out.println("Enter the Company name:");
+		company = scanObj.nextLine();
+
+		System.out.println("Enter the payslip id:");
+		payslip =scanObj.nextLine();
+
+		System.out.println("Enter the Aadhar id:");
+		aadhar=Integer.parseInt(scanObj.nextLine());
+
+		System.out.println("Enter the PANcard num:");
+		pancard=scanObj.nextLine();
+		
+		System.out.println("Enter the Passport id:");
+		passport=scanObj.nextLine();
+		
+        }
+        
+        Documents doc = new Documents(name, age, behaviour, dname, purpose, company, payslip, aadhar, pancard, passport);
+        doc.result();
+        
+        
+        
+    }
+}
