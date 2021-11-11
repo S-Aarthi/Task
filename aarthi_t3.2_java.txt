@@ -1,0 +1,52 @@
+import java.util.*;
+public class Fruit
+{
+    String name;
+    String color;
+    
+    public Fruit(String name, String color) 
+    {
+        this.name = name;
+        this.color = color;
+        
+    }
+    @Override
+    public String toString() 
+    {
+        return "Name : " + name + "\t" + " Color : " + color;
+    } 
+               
+    public static void main(String[] args)
+    {
+      Fruit[] fruits = 
+        {
+                new Fruit("Jackfruit", "Yellow"),new Fruit("Banana", "Yellow"),
+                new Fruit("Apple", "Red"),new Fruit("Strawberry", "Red"),new Fruit("Cherry", "Red"),
+                new Fruit("Mango", "Yellow"),new Fruit("Grapes", "Green"),new Fruit("Orange", "Orange")
+        };
+        
+        Arrays.asList(fruits).forEach(System.out::println);
+      
+        
+        for (int i=0;i<fruits.length;i++)
+        {
+              {   
+                String redfruit= fruits[i].color.equals("Red") ? fruits[i].name : "not";
+                System.out.println("\nThe Red fruit is "+redfruit+ " found in the position"+i);
+                
+             }
+             
+        }
+        
+        for(int i=0;i<fruits.length;i++)
+        {
+             if(fruits[i].color.equals("Red"))
+            {
+                System.out.println("\n\n\n*********************************************");
+               System.out.println("\nThe First red fruit in the array is  "+fruits[i].name);
+               break;
+             
+             }
+        }
+    }
+}
